@@ -1,0 +1,7 @@
+%h2 Menus
+.text-right
+  - if can? :create, Menu
+    = link_to 'New Menu', new_menu_path , class: 'btn btn-primary'
+%hr
+.panel.panel-default
+  = render partial: 'table'

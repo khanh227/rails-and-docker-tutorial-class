@@ -1,0 +1,7 @@
+%h2 List of Categories
+.text-right
+  - if can? :create, Category
+    = link_to 'New Category', new_category_path , class: 'btn btn-primary'
+%hr
+.panel.panel-default
+  = render partial: 'table'

@@ -1,0 +1,6 @@
+= simple_form_for @category do |f|
+  = f.input :name, hint: 'Minimum 5 characters', error_html: {id: 'name_error'}
+  = f.input :enabled
+  = f.button :submit
+  %p
+    = link_to 'Back To Index', categories_path

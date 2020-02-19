@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  app:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      args:
+        BUNDLE_WITHOUT:
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      # Mounts the app code (".") into the container's "/app" folder:
+      - .:/app:delegated
+      # Mounts a persistable volume in the installed gems folder, so we can add
+      # gems to the app without having to build the development image again:
+      - app-gems:/usr/local/bundle
+      # Mounts a clean tmp folder everytime
+      - /app/tmp
+    ports:
+      - 3000:3000
+    environment:
+      RAILS_ENV: development
+      DB_HOST: db
+      DB_NAME:
+      DB_USER_NAME: postgres
+      # BUNDLE_GEMFILE: Gemfile-next
+
+  db:
+    volumes:
+      # Mounts a persistable volume inside the postgres data folder, so we
+      # don't lose the created databases when this container is removed.
+      - "db-data:/var/lib/postgresql/data:cached"
+
+volumes:
+  db-data:
+  app-gems:
+    driver: local

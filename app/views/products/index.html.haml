@@ -1,0 +1,9 @@
+%h2 List of Products
+.text-right
+  - if can? :create, Product
+    = link_to 'New Product', new_product_path, class: 'btn btn-primary'
+  = link_to 'Import', product_imports_path, class: 'btn btn-info'
+  = link_to 'Export', products_path(format: :csv), class: 'btn btn-info'
+%hr
+.panel.panel-default
+  = render partial: 'table'

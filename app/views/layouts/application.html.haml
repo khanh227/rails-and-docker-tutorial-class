@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}/
+    %title=app_name
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    - if user_signed_in?
+      = render partial: 'shared/user_nav'
+    - else
+      = render partial: 'shared/nav'
+    .container
+      .row
+        = render partial: 'shared/notice'
+      - if user_signed_in?
+        = yield
+      - else
+        .row
+          .col-sm-6.col-sm-offset-3
+            = yield

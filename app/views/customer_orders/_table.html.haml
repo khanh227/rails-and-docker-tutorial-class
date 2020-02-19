@@ -1,0 +1,18 @@
+= table_tag do
+  %tr
+    %th Customer
+    %th Date
+    %th Product
+    %th Price
+    %th Canceled at
+  - @customer_orders.each do |customer_order|
+    %tr
+      %td= current_user.email
+      %td= customer_order.lunch_order.order_date
+      %td= customer_order.product.name
+      %td= customer_order.product.price
+      %td= customer_order.canceled_at
+      %td.text-right
+        = link_to 'Show', customer_order_path(customer_order), class: 'btn btn-info'
+        - if can? :cancel, CustomerOrder
+          = link_to 'Cancel', cancel_customer_order_path(customer_order), method: :post, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

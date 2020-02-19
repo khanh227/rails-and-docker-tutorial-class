@@ -1,0 +1,19 @@
+postgres: &postgres
+  adapter: postgresql
+  encoding: unicode
+  pool:     <%= ENV['RAILS_MAX_THREADS'] || 5 %>
+  host: <%= ENV['DB_HOST'] || '127.0.0.1' %>
+  username: <%= ENV['DB_USER_NAME'] %>
+  password: <%= ENV['DB_PWD'] || '' %>
+  timeout:  5000
+  port: <%= ENV['DB_PORT'] || 5432 %>
+  schema_search_path: "public,shared_extensions"
+development:
+  <<: *postgres
+  database: <%= ENV['DB_NAME'] || 'class2_development' %>
+test:
+  <<: *postgres
+  database: <%= ENV['DB_NAME_TEST'] || 'class2_test' %><%= ENV['TEST_ENV_NUMBER'] %>
+production:
+  <<: *postgres
+  database: <%= ENV['DB_NAME'] || 'class2_production' %>

@@ -1,0 +1,15 @@
+= table_tag do
+  %tr
+    %th Name
+    %th Enabled
+    %th
+  - @categories.each do |category|
+    %tr
+      %td= category.name
+      %td= status_tag(category.enabled)
+      %td.text-right
+        - if can? :update, Category
+          = link_to 'Edit', edit_category_path(category), class: 'btn btn-primary'
+        = link_to 'Show', category_path(category), class: 'btn btn-info'
+        - if can? :destroy, Category
+          = link_to 'Destroy', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

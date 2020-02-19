@@ -1,0 +1,19 @@
+.col-md-8
+  .links.btn-group
+    = link_to 'Back To Index', categories_path, class: 'btn btn-custom'
+    - if can? :update, Category
+      = link_to 'Edit', edit_category_path(@category) , class: 'btn btn-custom'
+    - if can? :destroy, Category  
+      = link_to 'Delete', category_path(@category), method: :delete, data: {confirm: 'Are you sure?'} , class: 'btn btn-custom'
+  .book-info
+    %table.table
+      %tr
+        %td
+          Name: 
+        %td
+          = @category.name
+      %tr
+        %td
+          Enabled: 
+        %td
+          = status_tag(@category.enabled)

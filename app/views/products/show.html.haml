@@ -1,0 +1,35 @@
+.col-md-8
+  .links.btn-group
+  - if can? :read, Product
+    = link_to 'Back To Index', products_path, class: 'btn btn-custom'
+    - if can? :update, Product
+      = link_to 'Edit', edit_product_path(@product) , class: 'btn btn-custom'
+    - if can? :destroy, Product  
+      = link_to 'Delete', product_path(@product), method: :delete, data: {confirm: 'Are you sure?'} , class: 'btn btn-custom'
+  .book-info
+    %table.table
+      %tr
+        %td
+          Name: 
+        %td
+          = @product.name
+      %tr
+        %td
+          Description: 
+        %td
+          = @product.description
+      %tr
+        %td
+          Description: 
+        %td
+          = @product.price
+      %tr
+        %td
+          Quatity: 
+        %td
+          = @product.quatity
+      %tr
+        %td
+          Enabled: 
+        %td
+          = status_tag(@product.enabled)

@@ -1,0 +1,7 @@
+= simple_form_for @menu, html: { multipart: true} do |f|
+  = f.input :menu_name, input_html: { value: Time.current.strftime('%Y-%m-%d') }
+  = f.input :product_ids, input_html: { multiple: true, size: Product.enabled.count }, collection: Product.enabled.pluck(:name, :id), selected: f.object.product_ids
+  = f.input :created_by, as: :hidden, input_html: { value: current_user.id }
+  = f.file_field :background_img
+  = f.button :submit, class: 'btn btn-primary'
+  = link_to 'Back To Index', menus_path, class: 'btn btn-default'

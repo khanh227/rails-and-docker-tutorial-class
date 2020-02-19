@@ -1,0 +1,9 @@
+.cardborder-success.mb-3
+  .card-header
+    %h4.bold
+      Date: 
+      = Time.current
+    %hr
+  .card-body
+    = simple_form_for :product, html: { multipart: true} do |f|
+      = f.collection_radio_buttons :options, @products.pluck(:id,:name), :first, :last

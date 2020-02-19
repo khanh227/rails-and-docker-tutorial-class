@@ -1,0 +1,15 @@
+%h2 List of Lunch Orders
+%hr
+.panel.panel-default
+  %table.table.table-responsive.table-striped
+    %tr
+      %th ID
+      %th Order Date
+      %th
+    - @lunch_orders.each do |lunch_order|
+      %tr
+        %td= lunch_order.id
+        %td= lunch_order.order_date.strftime("%d-%m-%Y")
+        %td.text-right
+          - if can? :read, LunchOrder
+            = link_to 'Show', lunch_order_path(lunch_order), class: 'btn btn-info'

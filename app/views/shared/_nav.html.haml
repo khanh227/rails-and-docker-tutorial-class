@@ -1,0 +1,7 @@
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      %h1=app_name
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to 'Sign Up', new_user_registration_path
+      %li= link_to 'Log In', new_user_session_path

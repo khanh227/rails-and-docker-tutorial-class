@@ -1,0 +1,4 @@
+%h2 Import
+= form_tag import_product_imports_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag 'Import'

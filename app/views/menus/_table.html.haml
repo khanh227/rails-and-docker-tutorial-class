@@ -1,0 +1,20 @@
+= table_tag do
+  %tr
+    %th Date
+    %th Products
+    %th Created by
+    %th
+  - @menus.each do |menu|
+    %tr
+      %td= menu.menu_name
+      %td
+        - menu.products.each do |product|
+          %ul
+            %li= product.name
+      %td= menu.user.email
+      %td.text-right
+        - if can? :update, Menu
+          = link_to 'Edit', edit_menu_path(menu), class: 'btn btn-primary'
+        = link_to 'Show', menu_path(menu), class: 'btn btn-info'
+        - if can? :destroy, Menu
+          = link_to 'Destroy', menu_path(menu), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

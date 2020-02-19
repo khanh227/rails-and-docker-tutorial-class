@@ -1,0 +1,16 @@
+%p
+  %strong Customer:
+  = @customer_order.user.email
+%p
+  %strong Date/Time:
+  = @customer_order.lunch_order.order_date
+%p
+  %strong Product:
+  = @customer_order.product.name
+%p
+  %strong Price:
+  = @customer_order.product.price
+%p
+  %strong Canceled at:
+  = @customer_order.canceled_at
+= link_to 'Back To Index', customer_orders_path
