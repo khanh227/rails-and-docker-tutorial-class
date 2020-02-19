@@ -13,7 +13,7 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'simple_form', '~> 4.1'
-gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'devise', '~> 4.7'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'paperclip', '~> 6.1'
 # Use Uglifier as compressor for JavaScript assets
