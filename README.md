@@ -1,34 +1,5 @@
-# README
+# Rails App & Docker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-Owner
-- Khanh Nguyen
-
-INSTALL
-* DATABASE
- - bundle exec rake db:create
- - bundle exec rake db:migrate
- - bundle exec rake db:test:prepare
- - bundle exec rake db:seed
+This is a web application for trainee to setting up a rails run on docker. some reasons: 
+- Save time when setup Rails Application on Ubuntu Local PC.
+- Save time when setup PostgreSQL for Rails App
